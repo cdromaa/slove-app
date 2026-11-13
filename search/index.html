@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UA APP beta v. 1.0.3</title>
+
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/style_search.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <h1>Пошук слів</h1>
+
+    <div class="search-container">
+        <input type="text" class="search" name="word-search" id="word-search" placeholder="Я шукаю...">
+
+        <div id="search-dropdown">
+            <img src="../icons/manage_search.svg" alt="dropdown-icon" class="dropdown-icon">
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <!-- ДОРОБИТИ -->
+
+    <div class="dropdown-content" id="dropdown-menu">
+        <div id="option-container">
+            <span class="filter-span"><label for="word-checkbox" class="span-label">Слово <input type="checkbox" name="word-checkbox" id="word-checkbox"></label></span>
+            <span class="filter-span"><label for="defnition-checkbox" class="span-label">Значення<input type="checkbox" name="defnition-checkbox" id="defnition-checkbox"></label></span>
+            <span class="filter-span"><label for="part-of-speech-checkbox" class="span-label">Частина мови<input type="checkbox" name="part-of-speech-checkbox" id="part-of-speech-checkbox"></label></span>
+            <span class="filter-span"><label for="synonym-checkbox" class="span-label">Синонім<input type="checkbox" name="synonym-checkbox" id="synonym-checkbox"></label></span>
+        </div>
+    </div>
+
+    <div class="filters" id="filters">
+        Пошук за:
+        <span id="word-checkbox-filter">Слово <img src="../icons/close.svg" alt="close-icon"></span>
+        <span id="defnition-checkbox-filter">Значення <img src="../icons/close.svg" alt="close-icon"></span>
+        <span id="part-of-speech-checkbox-filter">Част. мови <img src="../icons/close.svg" alt="close-icon"></span>
+        <span id="synonym-checkbox-filter">Синонім <img src="../icons/close.svg" alt="close-icon"></span>
+    </div>
+
+    <div class="results-container">
+        <div class="result">
+            <span class="word-span match">Слово</span>
+            <span><b>Частина мови: </b><span class="match">іменник</span></span>
+            <span><b>Синоніми: </b><span class="match">слово1</span>, <span>слово2</span>
+        </div> 
+    </div>
+
+    <footer>
+        <a href="../favourite/index.html" class="footer-btn"><span><img src="../icons/star.svg"
+                    alt="star"></span>Обране</a>
+        <a class="footer-btn a-active"><span class="span-active"><img src="../icons/search.svg" alt="donate"></span>Пошук</a>
+        <a href="../main/index.html" class="footer-btn"><span><img src="../icons/home.svg" alt="home"></span>Головна</a>
+        <a href="../menu/index.html" class="footer-btn"><img src="../icons/menu_open.svg" alt="menu">Меню</a>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UA APP beta v. 1.0.3</title>
+
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/style_menu.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <h1 id="header">Меню</h1>
+    <!-- <h1>Кастомізація</h1> -->
+
+    <span class="a-back" id="back-btn"><img src="../icons/arrow_upward.svg" alt="">Назад</span>
+
+    <div class="container-menu">
+        <div class="container-buttons" id="buttons">
+            <span class="a-menu" id="a-menu1">Кастомізація</span>
+            <span class="a-menu" id="a-menu2">Про  додаток</span>
+            <span class="a-menu" id="a-menu3">Підтримати</span>
+        </div>
+
+        <div class="container-customisation" id="customisation">
+            <label class="menu-label" for="theme">Тема додатку:</label>
+            <select name="app_color_theme" id="theme">
+                <option value="system">Системна тема</option>
+                <option value="light">Світла тема</option>
+                <option value="dark">Темна тема</option>
+            </select>
+            <div class="customisation-buttons">
+                <button class="customisation-buttons reset-customisation-btn">Скинути</button>
+                <button class="customisation-buttons apply-customisation-btn">Застосувати</button>
+            </div>
+        </div>
+
+        <div class="container-about" id="about">
+            TEST
+        </div>
+
+        <div class="container-support" id="support">
+            "Поможіть не словом (лого/назва), а поможіть доларом!"
+        </div>
+    </div>
+
+    <footer>
+        <a href="../favourite/index.html" class="footer-btn"><span><img src="../icons/star.svg" alt="star"></span>Обране</a>
+        <a href="../search/index.html" class="footer-btn"><span><img src="../icons/search.svg" alt="donate"></span>Пошук</a>
+        <a href="../main/index.html" class="footer-btn"><span><img src="../icons/home.svg" alt="home"></span>Головна</a>
+        <a class="footer-btn a-active"><span class="span-active"><img src="../icons/menu_open.svg" alt="menu"></span>Меню</a>
+    </footer>
+
+    <script>
+        let backButton = document.getElementById("back-btn")
+
+        let menuButtons = document.querySelectorAll(".a-menu")
+        let containerButtons = document.getElementById("buttons")
+
+        let containerCustomisaton = document.getElementById("customisation")
+        let containerAbout = document.getElementById("about")
+
+        let containerArray = [
+            containerCustomisaton = document.getElementById("customisation"),
+            containerAbout = document.getElementById("about"), containerSupport = document.getElementById("support")
+        ]
+
+        console.log(containerArray)
+
+        let h_content = document.getElementById("header")
+
+        menuButtons.forEach((element, index) => {
+            element.addEventListener("click", () => {
+                containerButtons.style.display = "none";
+                containerArray[index].style.display = "flex"
+                backButton.style.display = "flex"
+                window.history.pushState({ subview: true }, '', window.location.href);
+                h_content.innerHTML = menuButtons[index].textContent
+            })
+        })
+
+        function closeSubview() {
+                containerArray.forEach(element => {
+                element.style.display = "none";
+                containerButtons.style.display = "flex";
+                h_content.innerHTML = "Меню"
+                backButton.style.display = "none";
+            })
+        }
+
+        backButton.addEventListener("click", () => {
+            closeSubview()
+            history.back()
+        })
+
+        window.addEventListener("popstate", () => {
+            closeSubview();
+        });
+
+    </script>
+
+</body>
+
+</html>

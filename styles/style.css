@@ -1,0 +1,329 @@
+/* * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+} */
+
+body {
+    background-color: #fdf8e1;
+    text-align: center;
+    min-height: 100vh;
+    margin: 0;
+    padding-bottom: 100px;
+    overflow: auto;
+}
+
+.container {
+    width: 100%;
+    min-height: 450px;
+    clear: both;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 110px;
+}
+
+h1 {
+    font-family: "cormorant garamond";
+    font-weight: 800;
+    font-size: 45px;
+    background-color: #fdf8e1;
+    width: 100%;
+    height: 70px;
+    display: block;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+.word-card {
+    width: 600px;
+    min-height: 50px;
+    box-sizing: border-box;
+    background-color: #fae588;
+    border-radius: 30px;
+    padding: 30px;
+    text-align: left;
+    transition: height ease 0.5s;
+}
+
+.word {
+    font-family: "cormorant garamond";
+    font-weight: 600;
+    font-size: 50px;
+}
+
+.above-word {
+    font-family: "Montserrat";
+    font-weight: 400;
+}
+
+.transcription {
+    font-weight: 400;
+}
+
+.part_of_speech {
+    font-weight: 600;
+    font-style: italic;
+}
+
+.definition {
+    font-weight: 600;
+}
+
+.example {
+    font-weight: 300;
+    /* visibility: hidden; */
+}
+
+.link_goroh {
+    color: black;
+    font-family: 'Montserrat';
+    /* visibility: hidden; */
+}
+
+hr {
+    background-color: black;
+    height: 2px;
+    border: none;
+}
+
+.display-more-btn {
+    background-color: #fdf8e1;
+    border: none;
+    border-radius: 20px;
+    width: 100%;
+    height: 40px;
+    font-family: 'Montserrat';
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.display-more-btn img {
+    filter: brightness(0);
+    width: 20px;
+    height: 20px;
+    transition: transform ease 0.5s;
+}
+
+.star-favourite img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
+    filter: brightness(0); 
+    width: 30px;
+    /* margin-left: 155px; */
+}
+
+/* Обгортка додаткового контенту */
+.extra-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    /* Ховаємо контент (висота 0) */
+    transition: grid-template-rows 0.6s ease-in-out;
+    /* Плавна анімація висоти */
+}
+
+/* Клас, який ми будемо додавати через JS для відкриття */
+.extra-wrapper.is-open {
+    grid-template-rows: 1fr;
+    /* Розгортаємо на повну висоту */
+}
+
+/* Внутрішній блок обов'язково повинен мати overflow: hidden */
+.extra-content {
+    overflow: hidden;
+}
+
+/* Анімація обертання стрілочки (якщо ти використовуєш клас) */
+.btn-icon {
+    transition: transform 1.6s ease-in-out;
+}
+
+.btn-icon.rotate {
+    transform: rotate(180deg);
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    background-color: #fae588;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    z-index: 999;
+
+    /* Бонус для сучасних смартфонів (враховує шторку/смужку внизу екрана) */
+    padding-bottom: env(safe-area-inset-bottom);
+    box-shadow: 0px 0px 50px #fdf8e1;
+}
+
+footer a {
+    color: black;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    gap: 6px;
+}
+
+.footer-btn {
+    width: 75px;
+    height: 80%;
+    border: none;
+    border-radius: 15px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 15px;
+    font-family: "montserrat";
+    font-weight: 500;
+}
+
+.footer-btn span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.a-active {
+    font-weight: 700;
+}
+
+.span-active {
+    width: 70px;
+    border-radius: 20px;
+    background-color: #fdf8e1;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.footer-btn:active {
+    font-weight: 700;
+}
+
+.footer-btn img {
+    filter: brightness(0);
+    width: 35px;
+    height: 35px;
+}
+
+@media (max-width: 767px) {
+    body {
+        margin: 0;
+        height: 600px;
+        background-color: #fdf8e1;
+        text-align: center;
+    }
+
+    .word-card {
+        margin-top: 10px;
+    }
+
+    .container {
+        width: 90%;
+        min-height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 120px;
+        /* margin-bottom: 30px; */
+    }
+
+    h1 {
+        font-family: "cormorant garamond";
+        font-weight: 800;
+        font-size: 40px;
+        background-color: #fdf8e1;
+        width: 100%;
+        height: 120px;
+        display: flex;
+        position: fixed;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        margin: 0;
+    }
+
+    .word {
+        font-family: "cormorant garamond";
+        font-weight: 600;
+        font-size: 45px;
+    }
+
+    .above-word {
+        font-family: "Montserrat";
+        font-weight: 400;
+        font-size: 14px;
+    }
+
+    .part_of_speech {
+        font-weight: 600;
+        font-style: italic;
+    }
+
+    .definition {
+        font-weight: 700;
+    }
+
+    .example {
+        font-weight: 400;
+    }
+
+    .link_goroh {
+        color: black;
+        font-family: 'Montserrat';
+    }
+
+    hr {
+        background-color: black;
+        height: 2px;
+        border: none;
+    }
+
+    .display-more-btn {
+        background-color: #fdf8e1;
+        border: none;
+        border-radius: 20px;
+        width: 100%;
+        height: 40px;
+        font-family: 'Montserrat';
+        font-size: 15px;
+        font-weight: 600;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .display-more-btn img {
+        filter: brightness(0);
+        width: 20px;
+        height: 20px;
+        transition: transform ease 0.6s;
+    }
+}
+
