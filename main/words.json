@@ -2,7 +2,6 @@
     {
         "id": 0,
         "word": "Одвірок",
-        "transcription": "оудв’і́рок",
         "part_of_speech": "Іменник",
         "meanings": [
             {
@@ -19,7 +18,6 @@
     {
         "id": 1,
         "word": "Трутень",
-        "transcription": "тру́теин`",
         "part_of_speech": "Іменник",
         "meanings": [
             {
@@ -40,7 +38,6 @@
     {
         "id": 2,
         "word": "Мучний",
-        "transcription": "мучни́й",
         "part_of_speech": "Прикметник",
         "meanings": [
             {

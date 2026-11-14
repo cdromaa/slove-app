@@ -143,3 +143,12 @@ function updateFiltersState() {
 
 // ПОШУК СЛІВ
 
+let searchBar = document.getElementById("word-search")
+
+searchBar.addEventListener("input", () => {
+    let searchBarInput = searchBar.value.toLowerCase()
+    console.log(searchBarInput)
+})
+
+searchBar.addEventListener("click", () => { searchBar.select() })
+
