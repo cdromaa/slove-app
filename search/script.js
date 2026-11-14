@@ -152,3 +152,23 @@ searchBar.addEventListener("input", () => {
 
 searchBar.addEventListener("click", () => { searchBar.select() })
 
+let resultContainer = document.getElementById("resultContainer")
+let searchIDCheckboxes = []
+
+checkboxFilters.forEach(searchID => {
+    searchID.addEventListener('change', () => {
+        addCheckboxIDToArray()
+    });
+});
+
+function addCheckboxIDToArray() {
+    searchIDCheckboxes = []
+    checkboxFilters.forEach(checkboxID => {
+        if (checkboxID.checked === true) {
+            let searchFilterID = checkboxID.id
+            let searchFilterIDResult = searchFilterID.replace(/-checkbox$/, "")
+            searchIDCheckboxes.push(`${searchFilterIDResult}`)
+        }
+    })
+    console.log("Назви фільтрів: " + searchIDCheckboxes)
+}
