@@ -145,21 +145,10 @@ function updateFiltersState() {
 
 let searchBar = document.getElementById("word-search")
 
-searchBar.addEventListener("input", () => {
-    let searchBarInput = searchBar.value.toLowerCase()
-    console.log(searchBarInput)
-})
-
 searchBar.addEventListener("click", () => { searchBar.select() })
 
 let resultContainer = document.getElementById("resultContainer")
 let searchIDCheckboxes = []
-
-checkboxFilters.forEach(searchID => {
-    searchID.addEventListener('change', () => {
-        addCheckboxIDToArray()
-    });
-});
 
 function addCheckboxIDToArray() {
     searchIDCheckboxes = []
@@ -172,3 +161,14 @@ function addCheckboxIDToArray() {
     })
     console.log("Назви фільтрів: " + searchIDCheckboxes)
 }
+
+checkboxFilters.forEach(searchID => {
+    searchID.addEventListener('change', () => {
+        addCheckboxIDToArray()
+    });
+});
+
+searchBar.addEventListener("input", () => {
+    let searchBarInput = searchBar.value.toLowerCase()
+    console.log(searchBarInput)
+})
