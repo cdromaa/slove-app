@@ -168,7 +168,43 @@ checkboxFilters.forEach(searchID => {
     });
 });
 
+// ТЕСТ ПОШУК
+
 searchBar.addEventListener("input", () => {
     let searchBarInput = searchBar.value.toLowerCase()
     console.log(searchBarInput)
+
+    // TEST filter()
+
+    const words = ["Абетка", "Барвистий", "Туга", "Чарівний"]
+
+    const searchedWords = []
+    const baseWords = []
+
+    words.forEach(word => {
+        let lowerCaseWord = word.toLocaleLowerCase()
+        let isInclude = lowerCaseWord.includes(searchBarInput)
+        console.log(word+" Include: "+isInclude)
+        if(isInclude === true) {
+            searchedWords.push(lowerCaseWord)
+            baseWords.push(word)
+        }
+    });
+
+    for (i=0; i<baseWords.length; i++) {
+        resultContainer.innerHTML += `<div class="result">
+            <span class="word-span match">${baseWords[i]}</span>
+            <span><b>Частина мови: </b><span>іменник</span></span>
+            <span><b>Синоніми: </b><span>слово1</span>, <span>слово2</span>
+        </div>`
+    }
+
+    // baseWords.forEach(searchResult => {
+        
+    // });
+
+    console.log(baseWords, searchedWords)
+
+    // const isInclude = words.filter(searchBarInput)
+    // console.log(isInclude)
 })
