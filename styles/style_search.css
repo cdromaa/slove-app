@@ -187,73 +187,79 @@ input[type="checkbox"]:checked::before {
 }
 
 @-webkit-keyframes scale-up-right {
-  0% {
-    -webkit-transform: scale(0);
-            transform: scale(0);
-    -webkit-transform-origin: 100% 0%;
-            transform-origin: 100% 0%;
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    -webkit-transform-origin: 100% 0%;
-            transform-origin: 100% 0%;
-  }
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        -webkit-transform-origin: 100% 0%;
+        transform-origin: 100% 0%;
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-transform-origin: 100% 0%;
+        transform-origin: 100% 0%;
+    }
 }
+
 @keyframes scale-up-right {
-  0% {
-    -webkit-transform: scale(0);
-            transform: scale(0);
-    -webkit-transform-origin: 100% 0%;
-            transform-origin: 100% 0%;
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    -webkit-transform-origin: 100% 0%;
-            transform-origin: 100% 0%;
-  }
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        -webkit-transform-origin: 100% 0%;
+        transform-origin: 100% 0%;
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-transform-origin: 100% 0%;
+        transform-origin: 100% 0%;
+    }
 }
 
 
 @-webkit-keyframes scale-down-right {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    -webkit-transform-origin: 100% 0%;
-            transform-origin: 100% 0%;
-  }
-  100% {
-    -webkit-transform: scale(0);
-            transform: scale(0);
-    -webkit-transform-origin: 100% 0%;
-            transform-origin: 100% 0%;
-  }
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-transform-origin: 100% 0%;
+        transform-origin: 100% 0%;
+    }
+
+    100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        -webkit-transform-origin: 100% 0%;
+        transform-origin: 100% 0%;
+    }
 }
+
 @keyframes scale-down-right {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    -webkit-transform-origin: 100% 0%;
-            transform-origin: 100% 0%;
-  }
-  100% {
-    -webkit-transform: scale(0);
-            transform: scale(0);
-    -webkit-transform-origin: 100% 0%;
-            transform-origin: 100% 0%;
-  }
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-transform-origin: 100% 0%;
+        transform-origin: 100% 0%;
+    }
+
+    100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        -webkit-transform-origin: 100% 0%;
+        transform-origin: 100% 0%;
+    }
 }
 
 
-.scale-up-right{
-    -webkit-animation: scale-up-right .4s cubic-bezier(.39,.575,.565,1.000) both;
-    animation: scale-up-right .4s cubic-bezier(.39,.575,.565,1.000) both
+.scale-up-right {
+    -webkit-animation: scale-up-right .4s cubic-bezier(.39, .575, .565, 1.000) both;
+    animation: scale-up-right .4s cubic-bezier(.39, .575, .565, 1.000) both
 }
 
 .scale-down-right {
-	-webkit-animation: scale-down-right 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	animation: scale-down-right 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    -webkit-animation: scale-down-right 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: scale-down-right 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .overlay {
@@ -296,7 +302,7 @@ input[type="checkbox"]:checked::before {
 .result {
     box-sizing: border-box;
     width: 100%;
-    min-height: 120px;
+    height: 150px;
     background-color: #fae588;
     border: var(--border-style);
     border-radius: 25px;
@@ -309,6 +315,11 @@ input[type="checkbox"]:checked::before {
 
 .result span {
     font-family: 'Montserrat';
+}
+
+.result-label {
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .result span.word-span {

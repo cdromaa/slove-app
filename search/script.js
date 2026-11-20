@@ -170,6 +170,51 @@ checkboxFilters.forEach(searchID => {
 
 // ТЕСТ ПОШУК
 
+const words = [
+    {
+        word: "Абетка", part_of_speech: "Іменник", synonyms: ["Азбука"]
+    },
+    {
+        word: "Барвистий", part_of_speech: "Прикметник", synonyms: ["Різнобарвний"]
+    },
+    {
+        word: "Туга", part_of_speech: "Іменник", synonyms: ["Журба"]
+    },
+    {
+        word: "Чарівний", part_of_speech: "Прикметник", synonyms: ["Казковий"]
+    },
+    {
+        word: "Одвірок", part_of_speech: "Іменник", synonyms: ["Відвірок"]
+    },
+    {
+        word: "Трутень", part_of_speech: "Іменник", synonyms: ["Дармоїд"]
+    },
+    {
+        word: "Мучний", part_of_speech: "Прикметник", synonyms: ["Борошняний"]
+    },
+    {
+        word: "Балаканина", part_of_speech: "Іменник", synonyms: ["Балачки"]
+    },
+    {
+        word: "Загонич", part_of_speech: "Іменник", synonyms: ["Гучок"]
+    },
+    {
+        word: "Винозорий", part_of_speech: "Іменник", synonyms: ["Далекозорий"]
+    },
+    {
+        word: "Тлумачний", part_of_speech: "Іменник", synonyms: ["Пояснювальний"]
+    },
+    {
+        word: "Осіяний", part_of_speech: "Прикметник", synonyms: ["Сонцеясний"]
+    },
+    {
+        word: "П'ята", part_of_speech: "Прикметник", synonyms: ["П'ятка"]
+    },
+    {
+        word: "Точний", part_of_speech: "Іменник", synonyms: ["Прецизийний"]
+    }
+]
+
 searchBar.addEventListener("input", () => {
     let searchBarInput = searchBar.value.trim().toLowerCase()
     console.log(searchBarInput)
@@ -179,16 +224,14 @@ searchBar.addEventListener("input", () => {
         return
     }
 
-    const words = ["Абетка", "Барвистий", "Туга", "Чарівний", "Одвірок", "Трутень", "Мучний", "Вертепівець", "Загонич", "Винозорий", "Триангулювання", "Осіяний", "Ярижний", "Пересотворення"]
-
     const baseWords = []
 
-    words.forEach(word => {
-        let lowerCaseWord = word.toLocaleLowerCase()
+    words.forEach(record => {
+        let lowerCaseWord = record.word.toLowerCase()
         let isInclude = lowerCaseWord.includes(searchBarInput)
-        console.log(word + " Include: " + isInclude)
+        console.log(record.word + " Include: " + isInclude)
         if (isInclude === true) {
-            baseWords.push(word)
+            baseWords.push(record)
         }
     });
 
@@ -196,9 +239,9 @@ searchBar.addEventListener("input", () => {
 
     for (let i = 0; i < baseWords.length; i++) {
         resultContainer.innerHTML += `<div class="result">
-            <span class="word-span match">${baseWords[i]}</span>
-            <span><b>Частина мови: </b><span>іменник</span></span>
-            <span><b>Синоніми: </b><span>слово1</span>, <span>слово2</span></span>
+            <span class="word-span match">${baseWords[i].word}</span>
+            <span class='result-label'><b>Частина мови: </b><span>${baseWords[i].part_of_speech}</span></span>
+            <span class='result-label'><b>Синоніми: </b><span>${baseWords[i].synonyms}</span>, <span>Placeholder</span></span>
         </div>`
     }
 
