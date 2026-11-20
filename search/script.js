@@ -171,40 +171,40 @@ checkboxFilters.forEach(searchID => {
 // ТЕСТ ПОШУК
 
 searchBar.addEventListener("input", () => {
-    let searchBarInput = searchBar.value.toLowerCase()
+    let searchBarInput = searchBar.value.trim().toLowerCase()
     console.log(searchBarInput)
 
-    // TEST filter()
+    if (searchBarInput === "") {
+        resultContainer.innerHTML = "<span class='result-alert'>Введи слово для пошуку.</span>"
+        return
+    }
 
-    const words = ["Абетка", "Барвистий", "Туга", "Чарівний"]
+    const words = ["Абетка", "Барвистий", "Туга", "Чарівний", "Одвірок", "Трутень", "Мучний", "Вертепівець", "Загонич", "Винозорий", "Триангулювання", "Осіяний", "Ярижний", "Пересотворення"]
 
-    const searchedWords = []
     const baseWords = []
 
     words.forEach(word => {
         let lowerCaseWord = word.toLocaleLowerCase()
         let isInclude = lowerCaseWord.includes(searchBarInput)
-        console.log(word+" Include: "+isInclude)
-        if(isInclude === true) {
-            searchedWords.push(lowerCaseWord)
+        console.log(word + " Include: " + isInclude)
+        if (isInclude === true) {
             baseWords.push(word)
         }
     });
 
-    for (i=0; i<baseWords.length; i++) {
+    resultContainer.innerHTML = ""
+
+    for (let i = 0; i < baseWords.length; i++) {
         resultContainer.innerHTML += `<div class="result">
             <span class="word-span match">${baseWords[i]}</span>
             <span><b>Частина мови: </b><span>іменник</span></span>
-            <span><b>Синоніми: </b><span>слово1</span>, <span>слово2</span>
+            <span><b>Синоніми: </b><span>слово1</span>, <span>слово2</span></span>
         </div>`
     }
 
-    // baseWords.forEach(searchResult => {
-        
-    // });
+    if (baseWords.length == 0) {
+        resultContainer.innerHTML = "<span class='result-alert'>Не вдалося знайти слово за цим пошуковим запитом</span>"
+    }
 
-    console.log(baseWords, searchedWords)
-
-    // const isInclude = words.filter(searchBarInput)
-    // console.log(isInclude)
+    console.log(baseWords)
 })
